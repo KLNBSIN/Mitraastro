@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Primary Meta Tags -->
+    <title>MitraAstro - Premium Astrology & Cosmic Guidance</title>
+    <meta name="title" content="MitraAstro - Premium Astrology & Cosmic Guidance">
+    <meta name="description"
+        content="MitraAstro offers premium astrology services, personalized birth chart readings, tarot, numerology, vastu, and profound cosmic guidance. Elevate your spirit today.">
+    <meta name="keywords"
+        content="astrology, premium astrology, birth chart, horoscopes, tarot reading, numerology, vastu shastra, spiritual guidance, mystic, cosmic">
+    <meta name="author" content="MitraAstro">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="English">
+    <link rel="canonical" href="https://www.mitraastro.com/">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.mitraastro.com/">
+    <meta property="og:title" content="MitraAstro - Premium Astrology & Cosmic Guidance">
+    <meta property="og:description"
+        content="Discover profound astrological insights, tailored birth chart readings, and daily horoscopes to guide your life's unique journey.">
+    <meta property="og:image" content="https://www.mitraastro.com/astrologer.jpeg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://www.mitraastro.com/">
+    <meta property="twitter:title" content="MitraAstro - Premium Astrology">
+    <meta property="twitter:description"
+        content="Discover profound astrological insights and beautifully tailored guidance exactly for your life's unique journey.">
+    <meta property="twitter:image" content="https://www.mitraastro.com/astrologer.jpeg">
+
+    <!-- Favicons & App Icons -->
+    <link rel="icon" type="image/png" href="favcon.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="favcon.png" />
+    <link rel="shortcut icon" href="favcon.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="favcon.png" />
+    <meta name="apple-mobile-web-app-title" content="MitraAstro" />
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Google Fonts for Astrological Aesthetics & About Section -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Lora:wght@400;700&family=Cormorant+Upright:wght@400&display=swap"
+        rel="stylesheet">
+
+    <!-- Custom Font Integration & Global Scale -->
+    <style>
+        /* Global Scaling utility for 90% view on Desktop, 100% on mobile */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        @media (min-width: 1024px) {
+            html {
+                font-size: 90%;
+            }
+        }
+
+        /* Utility for the grainy texture on the Zodiac cards */
+        .grain-overlay {
+            background-image: url("data:image/svg+xml;utf8,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.85%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22/%3E%3C/svg%3E");
+            opacity: 0.15;
+            mix-blend-mode: overlay;
+        }
+
+        /* Hide scrollbar for slider but keep functionality */
+        .slider-slides::-webkit-scrollbar {
+            display: none;
+        }
+
+        .slider-slides {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+
+    <!-- Tailwind Config for Custom Colors & Fonts -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        dark: '#0a0a0a',
+                        'dark-bg': '#1a1a1a',
+                        accent: '#f97316', // Orange-500
+                        gold: '#eab308',   // Yellow-500
+                    },
+                    fontFamily: {
+                        mystic: ['"Lovalina"', '"Cinzel Decorative"', 'serif'],
+                        elegant: ['"Cormorant Garamond"', 'serif'],
+                        'serif-robust': ['"Lora"', 'serif'],
+                        'serif-calligraphic': ['"Cormorant Upright"', 'serif'],
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body id="main-body" class="bg-dark text-white font-sans antialiased overflow-hidden">
+    <!-- FULL SCREEN LOADER -->
+    <div id="site-loader"
+        class="fixed inset-0 z-[10000] bg-dark flex items-center justify-center transition-opacity duration-1000 opacity-100">
+        <video id="loader-video-desktop" autoplay muted playsinline class="hidden sm:block w-full h-full object-cover">
+            <source src="desktop-loader.mp4" type="video/mp4">
+        </video>
+        <video id="loader-video-mobile" autoplay muted playsinline
+            class="block sm:hidden w-full h-full object-contain object-center">
+            <source src="animationmobile.mp4" type="video/mp4">
+        </video>
+    </div>
+
+    <!-- HEADER / NAVBAR -->
+    <header class="w-full relative z-50 bg-dark/95 backdrop-blur-md border-b border-gray-800/50">
+        <!-- Top Bar -->
+        <div class="border-b border-gray-800/50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <!-- Flex layout optimized for mobile: Contact hidden entirely on mobile -->
+                <div class="flex justify-between items-center py-3 md:py-4">
+
+                    <!-- Left: Contact Info (Strictly Hidden on Mobile) -->
+                    <div
+                        class="hidden lg:flex items-center space-x-7 text-sm xl:text-base text-gray-300 font-elegant font-medium tracking-wide">
+                        <a href="tel:+917543028568" class="hover:text-accent transition-colors flex items-center gap-2">
+                            <i class="fas fa-phone-alt text-accent/80 text-sm"></i>
+                            +91 7543028568
+                        </a>
+                        <a href="mailto:mitastrosunit@gmail.com"
+                            class="flex items-center gap-2 border-l border-gray-700 pl-7 hover:text-accent transition-colors">
+                            <i class="fas fa-envelope text-accent/80 text-sm"></i>
+                            mitrastrosunit@gmail.com
+                        </a>
+                        <a href="https://maps.google.com/?q=Mitrastro,+near+Harshraj+diagnostic+center,+opposite+central+bank+of+india,+bmp+road,+ashiyana+more,+Patna" target="_blank"
+                            rel="noopener noreferrer"
+                            class="flex items-center gap-2 border-l border-gray-700 pl-7 hover:text-accent transition-colors">
+                            <i class="fas fa-map-marker-alt text-accent/80 text-sm"></i>
+                            Mitrastro, near Harshraj diagnostic center . Patna
+                        </a>
+                    </div>
+
+                    <!-- Right: Search Bar & Mobile Menu -->
+                    <div class="flex items-center justify-end w-full lg:w-auto gap-3 sm:gap-4 ml-auto">
+                        <div class="relative w-full max-w-[260px] sm:max-w-xs lg:w-80 xl:w-96 group">
+                            <!-- Functional Search Input -->
+                            <input type="text" id="site-search-input" placeholder="Search..."
+                                class="w-full bg-white/5 border border-gray-700 rounded-full py-2 pl-4 pr-10 text-xs sm:text-sm text-gray-200 font-elegant focus:outline-none focus:border-accent/50 focus:ring-1 focus:ring-accent/50 focus:bg-white/10 transition-all placeholder-gray-500">
+                            <button id="site-search-btn"
+                                class="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500 hover:text-accent transition-colors">
+                                <i class="fas fa-search text-sm"></i>
+                            </button>
+                        </div>
+                        <button id="mobile-menu-btn"
+                            class="lg:hidden text-gray-400 hover:text-white focus:outline-none p-2">
+                            <i class="fas fa-bars text-2xl"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Navigation Bar -->
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Center logo perfectly on mobile, space-between on desktop -->
+            <div class="flex justify-center lg:justify-between items-center h-16 relative">
+
+                <!-- Text Logo (MitraAstro) - Centered on Mobile -->
+                <div
+                    class="flex-shrink-0 flex items-center cursor-pointer absolute lg:static left-1/2 -translate-x-1/2 lg:translate-x-0">
+                    <span class="text-3xl md:text-3xl font-bold tracking-widest font-mystic">
+                        <span
+                            class="text-transparent bg-clip-text bg-gradient-to-r from-accent to-gold drop-shadow-md">Mitra</span><span
+                            class="text-white drop-shadow-md">Astro</span>
+                    </span>
+                </div>
+
+                <!-- Desktop Nav Links: Shifted purely to the right, single line -->
+                <nav class="hidden lg:flex space-x-10 xl:space-x-20 h-full ml-auto">
+                    <a href="#"
+                        class="whitespace-nowrap flex items-center text-accent h-full font-elegant font-semibold text-base xl:text-lg tracking-wide border-b-2 border-accent">Home</a>
+                    <a href="#about-us"
+                        class="whitespace-nowrap flex items-center text-gray-300 hover:text-accent transition-colors h-full font-elegant font-semibold text-base xl:text-lg tracking-wide border-b-2 border-transparent hover:border-accent/50">About
+                        Us</a>
+                    <a href="#services"
+                        class="whitespace-nowrap flex items-center text-gray-300 hover:text-accent transition-colors h-full font-elegant font-semibold text-base xl:text-lg tracking-wide border-b-2 border-transparent hover:border-accent/50">Services</a>
+                    <a href="#horoscope"
+                        class="whitespace-nowrap flex items-center text-gray-300 hover:text-accent transition-colors h-full font-elegant font-semibold text-base xl:text-lg tracking-wide border-b-2 border-transparent hover:border-accent/50">Horoscope</a>
+                    <a href="#my-products"
+                        class="whitespace-nowrap flex items-center text-gray-300 hover:text-accent transition-colors h-full font-elegant font-semibold text-base xl:text-lg tracking-wide border-b-2 border-transparent hover:border-accent/50">Shop</a>
+                    <a href="#cosmic-inquiry"
+                        class="whitespace-nowrap flex items-center text-gray-300 hover:text-accent transition-colors h-full font-elegant font-semibold text-base xl:text-lg tracking-wide border-b-2 border-transparent hover:border-accent/50">Contact</a>
+                </nav>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu"
+            class="hidden lg:hidden bg-dark border-t border-gray-800 absolute w-full left-0 shadow-2xl z-50">
+            <div class="px-4 py-3 space-y-1 font-elegant flex flex-col text-center">
+                <a href="#" class="block px-3 py-3 text-accent bg-white/5 rounded-md text-xl font-semibold">Home</a>
+                <a href="#about-us"
+                    class="mobile-link block px-3 py-3 text-gray-300 hover:text-accent hover:bg-white/5 rounded-md text-xl font-semibold transition-colors">About
+                    Us</a>
+                <a href="#services"
+                    class="mobile-link block px-3 py-3 text-gray-300 hover:text-accent hover:bg-white/5 rounded-md text-xl font-semibold transition-colors">Services</a>
+                <a href="#horoscope"
+                    class="mobile-link block px-3 py-3 text-gray-300 hover:text-accent hover:bg-white/5 rounded-md text-xl font-semibold transition-colors">Horoscope</a>
+                <a href="#my-products"
+                    class="mobile-link block px-3 py-3 text-gray-300 hover:text-accent hover:bg-white/5 rounded-md text-xl font-semibold transition-colors">Shop</a>
+                <a href="#cosmic-inquiry"
+                    class="mobile-link block px-3 py-3 text-gray-300 hover:text-accent hover:bg-white/5 rounded-md text-xl font-semibold transition-colors">Contact</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION (Full Mobile Screen Height) -->
+    <section class="relative w-full flex items-center justify-center overflow-hidden z-10 min-h-[90vh] md:min-h-screen">
+        <video autoplay loop muted playsinline class="absolute inset-0 w-full h-full object-cover object-center z-0">
+            <source src="4784309_Astrology_Chart_3840x2160.mp4" type="video/mp4">
+        </video>
+        <div class="absolute inset-0 bg-gradient-to-b from-dark/80 via-dark/60 to-dark/90 z-10"></div>
+        <div
+            class="relative z-20 text-center px-4 sm:px-6 lg:px-8 w-full max-w-5xl mx-auto flex flex-col items-center -mt-10 lg:-mt-20">
+
+            <!-- Responsive wrapping text, updated for responsiveness -->
+            <h1
+                class="font-mystic font-normal text-white mb-4 sm:mb-6 leading-tight drop-shadow-2xl flex flex-col items-center w-full px-2 text-center">
+                <span class="text-4xl sm:text-5xl lg:text-7xl sm:whitespace-nowrap">Elevate Your Spirit With</span>
+                <span
+                    class="text-4xl sm:text-5xl lg:text-7xl text-transparent bg-clip-text bg-gradient-to-r from-accent via-gold to-orange-300 sm:whitespace-nowrap">Cosmic
+                    Guidance</span>
+            </h1>
+
+            <p
+                class="text-base sm:text-lg md:text-xl text-gray-300 mb-8 sm:mb-10 max-w-sm sm:max-w-2xl mx-auto drop-shadow-md font-elegant font-medium leading-relaxed px-2">
+                We deliver profound astrological insights and beautifully tailored guidance exactly for your life's
+                unique journey. Personalized birth chart readings and daily horoscopes to guide your path.
+            </p>
+
+            <!-- Updated CTA Buttons -->
+            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center w-full sm:w-auto px-4">
+                <a href="#about-us"
+                    class="group relative px-6 sm:px-8 py-3.5 bg-gradient-to-r from-accent to-gold text-dark font-elegant font-bold text-lg sm:text-xl tracking-wide rounded-full transition-all duration-300 transform hover:-translate-y-1 hover:shadow-[0_0_20px_rgba(249,115,22,0.5)] w-full sm:w-auto flex items-center justify-center whitespace-nowrap">
+                    About Us
+                    <div
+                        class="absolute inset-0 rounded-full ring-2 ring-white/20 group-hover:ring-white/40 transition-all">
+                    </div>
+                </a>
+                <a href="#cosmic-inquiry"
+                    class="book-appointment-btn px-6 sm:px-8 py-3.5 backdrop-blur-md bg-white/5 border border-white/20 text-white font-elegant font-bold text-lg sm:text-xl tracking-wide rounded-full transition-all duration-300 transform hover:-translate-y-1 hover:bg-white/10 hover:border-white/40 w-full sm:w-auto flex items-center justify-center whitespace-nowrap">
+                    Contact Us
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ABOUT US SECTION (Perfected for Mobile & Desktop) -->
+    <section id="about-us" class="relative w-full py-16 md:py-24 bg-dark z-10">
+        <div
+            class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center md:items-start text-center md:text-left">
+            <span
+                class="text-accent font-elegant font-semibold tracking-[0.2em] uppercase text-xs sm:text-sm md:text-base mb-4 sm:mb-6">About
+                us</span>
+            <h1
+                class="text-white font-serif-robust text-3xl sm:text-4xl md:text-6xl lg:text-7xl leading-tight max-w-6xl">
+                WHERE INNER KNOWING BLOOMS <span class="font-serif-calligraphic text-white block sm:inline">Into
+                    LIGHT</span>
+            </h1>
+
+            <div
+                class="mt-10 md:mt-16 w-full grid grid-cols-1 md:grid-cols-[1fr,1.5fr,1fr] gap-10 md:gap-x-12 md:gap-y-12 items-center font-elegant">
+                <!-- Text 1 -->
+                <div
+                    class="text-base sm:text-lg md:text-xl text-gray-300 leading-relaxed max-w-md mx-auto md:mx-0 order-2 md:order-1 px-2">
+                    <p>MitraAstro was born from a deep reverence for the unseen — a sacred space where the stars speak,
+                        and energy flows through artistry. We blend modern mysticism with timeless cosmic knowledge to
+                        guide you toward clarity, connection, and inner beauty.</p>
+                </div>
+                <!-- Image -->
+                <div
+                    class="w-full max-w-xs sm:max-w-sm md:max-w-full mx-auto relative rounded-xl overflow-hidden shadow-2xl border border-gray-800 scale-100 md:scale-105 z-20 order-1 md:order-2">
+                    <img src="astrologer.jpeg" alt="Astrological Chart"
+                        class="w-full h-auto object-cover hover:scale-105 transition-transform duration-700">
+                </div>
+                <!-- Text 2 -->
+                <div
+                    class="text-base sm:text-lg md:text-xl text-gray-300 leading-relaxed max-w-md mx-auto md:mx-0 order-3 md:order-3 px-2">
+                    <p>Our work is rooted in intuitive practice and inspired design — merging astrology, symbolism, and
+                        soul-aligned insight into every creation. Whether you seek alignment, inspiration, or quiet
+                        reflection, MitraAstro is your space to reconnect with what truly matters.</p>
+                </div>
+            </div>
+
+            <!-- Bottom Text -->
+            <div
+                class="mt-10 md:mt-16 w-full max-w-4xl mx-auto text-base sm:text-lg md:text-xl text-gray-300 leading-relaxed font-elegant text-center md:text-left px-2">
+                <p>Each chart, card, and cosmic message is crafted with deep intention — not merely read, but
+                    experienced. Every detail is infused with care, meaning, and intuitive resonance, designed to awaken
+                    something within you. It's more than guidance — it's a mirror, a map, and a moment of reconnection.
+                    Welcome to a journey that feels home — soft, sacred, and written in the stars.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICES SECTION (2-Column Grid on Mobile) -->
+    <section id="services" class="relative w-full py-16 md:py-24 bg-dark z-10 border-t border-gray-800/30">
+        <div
+            class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center md:items-start text-center md:text-left">
+            <span
+                class="text-gold font-elegant font-semibold tracking-[0.2em] uppercase text-xs sm:text-sm md:text-base mb-4">Divination
+                Offerings</span>
+            <h1
+                class="text-white font-serif-robust text-3xl sm:text-4xl md:text-6xl lg:text-7xl leading-tight max-w-6xl mb-10 md:mb-16">
+                SACRED TOOLS TO GUIDE <span class="font-serif-calligraphic text-white block sm:inline">Your
+                    JOURNEY</span>
+            </h1>
+
+            <!-- Adjusted to grid-cols-2 for mobile -->
+            <div class="w-full grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6">
+                <!-- Service Cards -->
+                <div
+                    class="w-full p-4 sm:p-8 bg-[#fcfaf1] rounded-2xl flex flex-col items-center sm:items-start text-center sm:text-left font-elegant text-black space-y-3 hover:-translate-y-2 transition-transform duration-300 shadow-xl">
+                    <h2 class="font-mystic font-bold text-[15px] sm:text-2xl leading-tight">Vastu Shastra Consultants
+                    </h2>
+                    <p class="text-[11px] sm:text-base text-gray-800 leading-snug sm:leading-relaxed">Harmonize
+                        workspaces with Vastu principles for positivity & balance.</p>
+                    <a href="#cosmic-inquiry"
+                        class="learn-more-btn text-accent font-bold uppercase tracking-widest text-[9px] sm:text-xs hover:text-black transition-colors mt-auto pt-2 sm:pt-4">READ
+                        MORE</a>
+                </div>
+                <div
+                    class="w-full p-4 sm:p-8 bg-[#fcfaf1] rounded-2xl flex flex-col items-center sm:items-start text-center sm:text-left font-elegant text-black space-y-3 hover:-translate-y-2 transition-transform duration-300 shadow-xl">
+                    <h2 class="font-mystic font-bold text-[15px] sm:text-2xl leading-tight">Reading of Numerology</h2>
+                    <p class="text-[11px] sm:text-base text-gray-800 leading-snug sm:leading-relaxed">Discover hidden
+                        meanings behind numbers to unlock your destiny.</p>
+                    <a href="#cosmic-inquiry"
+                        class="learn-more-btn text-accent font-bold uppercase tracking-widest text-[9px] sm:text-xs hover:text-black transition-colors mt-auto pt-2 sm:pt-4">READ
+                        MORE</a>
+                </div>
+                <div
+                    class="w-full p-4 sm:p-8 bg-[#fcfaf1] rounded-2xl flex flex-col items-center sm:items-start text-center sm:text-left font-elegant text-black space-y-3 hover:-translate-y-2 transition-transform duration-300 shadow-xl">
+                    <h2 class="font-mystic font-bold text-[15px] sm:text-2xl leading-tight">Tarot Card Reading</h2>
+                    <p class="text-[11px] sm:text-base text-gray-800 leading-snug sm:leading-relaxed">Navigate purpose
+                        through a personalized tarot soul journey.</p>
+                    <a href="#cosmic-inquiry"
+                        class="learn-more-btn text-accent font-bold uppercase tracking-widest text-[9px] sm:text-xs hover:text-black transition-colors mt-auto pt-2 sm:pt-4">READ
+                        MORE</a>
+                </div>
+                <div
+                    class="w-full p-4 sm:p-8 bg-[#fcfaf1] rounded-2xl flex flex-col items-center sm:items-start text-center sm:text-left font-elegant text-black space-y-3 hover:-translate-y-2 transition-transform duration-300 shadow-xl">
+                    <h2 class="font-mystic font-bold text-[15px] sm:text-2xl leading-tight">Muhurat Calculation</h2>
+                    <p class="text-[11px] sm:text-base text-gray-800 leading-snug sm:leading-relaxed">Find auspicious
+                        timings for your life's most important events.</p>
+                    <a href="#cosmic-inquiry"
+                        class="learn-more-btn text-accent font-bold uppercase tracking-widest text-[9px] sm:text-xs hover:text-black transition-colors mt-auto pt-2 sm:pt-4">READ
+                        MORE</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- HOROSCOPE FORECASTS SECTION (2-Column Grid on Mobile) -->
+    <section id="horoscope" class="relative w-full py-16 md:py-24 bg-dark z-10 border-t border-gray-800/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center text-center">
+            <span
+                class="text-gold font-elegant font-semibold tracking-[0.2em] uppercase text-xs sm:text-sm md:text-base mb-2">Horoscope
+                Forecasts</span>
+            <h1
+                class="text-white font-serif-robust text-3xl sm:text-4xl md:text-6xl lg:text-7xl leading-tight max-w-6xl mb-10 md:mb-16 uppercase">
+                ROOTED IN THE STARS,<br>GUIDED <span class="font-serif-calligraphic text-white lowercase">By</span> SOUL
+            </h1>
+
+            <!-- Grid dynamically adjusts: 2 cols on mobile, 4 on desktop -->
+            <div class="w-full grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6 relative">
+
+                <!-- Card 1: Libra -->
+                <div
+                    class="w-full p-3 sm:p-4 bg-[#fcfaf1] rounded-2xl flex flex-col items-center text-center shadow-xl hover:-translate-y-2 transition-transform duration-300 relative z-10">
+                    <h3 class="font-mystic text-xl sm:text-3xl md:text-4xl mt-2 sm:mt-3 mb-1 text-dark">Libra</h3>
+                    <p
+                        class="font-sans text-[9px] sm:text-[11px] tracking-wide sm:tracking-widest text-gray-500 uppercase mb-3 sm:mb-5 font-semibold">
+                        Sept 23 - Oct 22</p>
+                    <a href="#cosmic-inquiry"
+                        class="learn-more-btn text-[10px] sm:text-xs font-sans tracking-wide sm:tracking-widest text-dark hover:text-accent transition-colors mb-3 sm:mb-5 uppercase font-medium">Learn
+                        More</a>
+                    <div
+                        class="w-full aspect-square rounded-xl bg-gradient-to-br from-[#7baba0] via-[#3a6860] to-[#0e2c26] flex items-center justify-center shadow-inner relative overflow-hidden">
+                        <div class="absolute inset-0 grain-overlay z-0"></div>
+                        <img src="1.jpg" alt="Libra Icon"
+                            class="z-10 w-full h-full object-cover rounded-xl drop-shadow-md">
+                    </div>
+                </div>
+                <!-- Card 2: Capricorn -->
+                <div
+                    class="w-full p-3 sm:p-4 bg-[#fcfaf1] rounded-2xl flex flex-col items-center text-center shadow-xl hover:-translate-y-2 transition-transform duration-300 relative z-10">
+                    <h3 class="font-mystic text-xl sm:text-3xl md:text-4xl mt-2 sm:mt-3 mb-1 text-dark">Capricorn</h3>
+                    <p
+                        class="font-sans text-[9px] sm:text-[11px] tracking-wide sm:tracking-widest text-gray-500 uppercase mb-3 sm:mb-5 font-semibold">
+                        Dec 22 - Jan 19</p>
+                    <a href="#cosmic-inquiry"
+                        class="learn-more-btn text-[10px] sm:text-xs font-sans tracking-wide sm:tracking-widest text-dark hover:text-accent transition-colors mb-3 sm:mb-5 uppercase font-medium">Learn
+                        More</a>
+                    <div
+                        class="w-full aspect-square rounded-xl bg-gradient-to-br from-[#e63535] via-[#e55138] to-[#ea8351] flex items-center justify-center shadow-inner relative overflow-hidden">
+                        <div class="absolute inset-0 grain-overlay z-0"></div>
+                        <img src="2.jpg" alt="Capricorn Icon"
+                            class="z-10 w-full h-full object-cover rounded-xl drop-shadow-md">
+                    </div>
+                </div>
+                <!-- Card 3: Aquarius -->
+                <div
+                    class="w-full p-3 sm:p-4 bg-[#fcfaf1] rounded-2xl flex flex-col items-center text-center shadow-xl hover:-translate-y-2 transition-transform duration-300 relative z-10">
+                    <h3 class="font-mystic text-xl sm:text-3xl md:text-4xl mt-2 sm:mt-3 mb-1 text-dark">Aquarius</h3>
+                    <p
+                        class="font-sans text-[9px] sm:text-[11px] tracking-wide sm:tracking-widest text-gray-500 uppercase mb-3 sm:mb-5 font-semibold">
+                        Jan 20 - Feb 18</p>
+                    <a href="#cosmic-inquiry"
+                        class="learn-more-btn text-[10px] sm:text-xs font-sans tracking-wide sm:tracking-widest text-dark hover:text-accent transition-colors mb-3 sm:mb-5 uppercase font-medium">Learn
+                        More</a>
+                    <div
+                        class="w-full aspect-square rounded-xl bg-gradient-to-br from-[#79b9a6] via-[#a3c7a3] to-[#42796e] flex items-center justify-center shadow-inner relative overflow-hidden">
+                        <div class="absolute inset-0 grain-overlay z-0"></div>
+                        <img src="3.jpg" alt="Aquarius Icon"
+                            class="z-10 w-full h-full object-cover rounded-xl drop-shadow-md">
+                    </div>
+                </div>
+                <!-- Card 4: Pisces -->
+                <div
+                    class="w-full p-3 sm:p-4 bg-[#fcfaf1] rounded-2xl flex flex-col items-center text-center shadow-xl hover:-translate-y-2 transition-transform duration-300 relative z-10">
+                    <h3 class="font-mystic text-xl sm:text-3xl md:text-4xl mt-2 sm:mt-3 mb-1 text-dark">Pisces</h3>
+                    <p
+                        class="font-sans text-[9px] sm:text-[11px] tracking-wide sm:tracking-widest text-gray-500 uppercase mb-3 sm:mb-5 font-semibold">
+                        Feb 19 - Mar 20</p>
+                    <a href="#cosmic-inquiry"
+                        class="learn-more-btn text-[10px] sm:text-xs font-sans tracking-wide sm:tracking-widest text-dark hover:text-accent transition-colors mb-3 sm:mb-5 uppercase font-medium">Learn
+                        More</a>
+                    <div
+                        class="w-full aspect-square rounded-xl bg-gradient-to-br from-[#a981eb] via-[#8580ea] to-[#6791e3] flex items-center justify-center shadow-inner relative overflow-hidden">
+                        <div class="absolute inset-0 grain-overlay z-0"></div>
+                        <img src="4.jpg" alt="Pisces Icon"
+                            class="z-10 w-full h-full object-cover rounded-xl drop-shadow-md">
+                    </div>
+                </div>
+                <!-- Card 5: Taurus -->
+                <div
+                    class="w-full p-3 sm:p-4 bg-[#fcfaf1] rounded-2xl flex flex-col items-center text-center shadow-xl hover:-translate-y-2 transition-transform duration-300 relative z-10">
+                    <h3 class="font-mystic text-xl sm:text-3xl md:text-4xl mt-2 sm:mt-3 mb-1 text-dark">Taurus</h3>
+                    <p
+                        class="font-sans text-[9px] sm:text-[11px] tracking-wide sm:tracking-widest text-gray-500 uppercase mb-3 sm:mb-5 font-semibold">
+                        Apr 20 - May 20</p>
+                    <a href="#cosmic-inquiry"
+                        class="learn-more-btn text-[10px] sm:text-xs font-sans tracking-wide sm:tracking-widest text-dark hover:text-accent transition-colors mb-3 sm:mb-5 uppercase font-medium">Learn
+                        More</a>
+                    <div
+                        class="w-full aspect-square rounded-xl bg-gradient-to-br from-[#748f6c] via-[#5c7a53] to-[#3a5033] flex items-center justify-center shadow-inner relative overflow-hidden">
+                        <div class="absolute inset-0 grain-overlay z-0"></div>
+                        <img src="5.jpg" alt="Taurus Icon"
+                            class="z-10 w-full h-full object-cover rounded-xl drop-shadow-md">
+                    </div>
+                </div>
+                <!-- Card 6: Aries -->
+                <div
+                    class="w-full p-3 sm:p-4 bg-[#fcfaf1] rounded-2xl flex flex-col items-center text-center shadow-xl hover:-translate-y-2 transition-transform duration-300 relative z-10">
+                    <h3 class="font-mystic text-xl sm:text-3xl md:text-4xl mt-2 sm:mt-3 mb-1 text-dark">Aries</h3>
+                    <p
+                        class="font-sans text-[9px] sm:text-[11px] tracking-wide sm:tracking-widest text-gray-500 uppercase mb-3 sm:mb-5 font-semibold">
+                        Mar 21 - Apr 19</p>
+                    <a href="#cosmic-inquiry"
+                        class="learn-more-btn text-[10px] sm:text-xs font-sans tracking-wide sm:tracking-widest text-dark hover:text-accent transition-colors mb-3 sm:mb-5 uppercase font-medium">Learn
+                        More</a>
+                    <div
+                        class="w-full aspect-square rounded-xl bg-gradient-to-br from-[#d94838] via-[#e66a50] to-[#b33324] flex items-center justify-center shadow-inner relative overflow-hidden">
+                        <div class="absolute inset-0 grain-overlay z-0"></div>
+                        <img src="6.jpg" alt="Aries Icon"
+                            class="z-10 w-full h-full object-cover rounded-xl drop-shadow-md">
+                    </div>
+                </div>
+                <!-- Card 7: Cancer -->
+                <div
+                    class="w-full p-3 sm:p-4 bg-[#fcfaf1] rounded-2xl flex flex-col items-center text-center shadow-xl hover:-translate-y-2 transition-transform duration-300 relative z-10">
+                    <h3 class="font-mystic text-xl sm:text-3xl md:text-4xl mt-2 sm:mt-3 mb-1 text-dark">Cancer</h3>
+                    <p
+                        class="font-sans text-[9px] sm:text-[11px] tracking-wide sm:tracking-widest text-gray-500 uppercase mb-3 sm:mb-5 font-semibold">
+                        Jun 21 - Jul 22</p>
+                    <a href="#cosmic-inquiry"
+                        class="learn-more-btn text-[10px] sm:text-xs font-sans tracking-wide sm:tracking-widest text-dark hover:text-accent transition-colors mb-3 sm:mb-5 uppercase font-medium">Learn
+                        More</a>
+                    <div
+                        class="w-full aspect-square rounded-xl bg-gradient-to-br from-[#b5c6d4] via-[#8fa9bd] to-[#688296] flex items-center justify-center shadow-inner relative overflow-hidden">
+                        <div class="absolute inset-0 grain-overlay z-0"></div>
+                        <img src="7.jpg" alt="Cancer Icon"
+                            class="z-10 w-full h-full object-cover rounded-xl drop-shadow-md">
+                    </div>
+                </div>
+                <!-- Card 8: Gemini -->
+                <div
+                    class="w-full p-3 sm:p-4 bg-[#fcfaf1] rounded-2xl flex flex-col items-center text-center shadow-xl hover:-translate-y-2 transition-transform duration-300 relative z-10">
+                    <h3 class="font-mystic text-xl sm:text-3xl md:text-4xl mt-2 sm:mt-3 mb-1 text-dark">Gemini</h3>
+                    <p
+                        class="font-sans text-[9px] sm:text-[11px] tracking-wide sm:tracking-widest text-gray-500 uppercase mb-3 sm:mb-5 font-semibold">
+                        May 21 - Jun 20</p>
+                    <a href="#cosmic-inquiry"
+                        class="learn-more-btn text-[10px] sm:text-xs font-sans tracking-wide sm:tracking-widest text-dark hover:text-accent transition-colors mb-3 sm:mb-5 uppercase font-medium">Learn
+                        More</a>
+                    <div
+                        class="w-full aspect-square rounded-xl bg-gradient-to-br from-[#e8d274] via-[#e8c65a] to-[#c2a43a] flex items-center justify-center shadow-inner relative overflow-hidden">
+                        <div class="absolute inset-0 grain-overlay z-0"></div>
+                        <img src="8.jpg" alt="Gemini Icon"
+                            class="z-10 w-full h-full object-cover rounded-xl drop-shadow-md">
+                    </div>
+                </div>
+                <!-- Card 9: Leo -->
+                <div
+                    class="w-full p-3 sm:p-4 bg-[#fcfaf1] rounded-2xl flex flex-col items-center text-center shadow-xl hover:-translate-y-2 transition-transform duration-300 relative z-10">
+                    <h3 class="font-mystic text-xl sm:text-3xl md:text-4xl mt-2 sm:mt-3 mb-1 text-dark">Leo</h3>
+                    <p
+                        class="font-sans text-[9px] sm:text-[11px] tracking-wide sm:tracking-widest text-gray-500 uppercase mb-3 sm:mb-5 font-semibold">
+                        Jul 23 - Aug 22</p>
+                    <a href="#cosmic-inquiry"
+                        class="learn-more-btn text-[10px] sm:text-xs font-sans tracking-wide sm:tracking-widest text-dark hover:text-accent transition-colors mb-3 sm:mb-5 uppercase font-medium">Learn
+                        More</a>
+                    <div
+                        class="w-full aspect-square rounded-xl bg-gradient-to-br from-[#f29f43] via-[#e87f2e] to-[#d4661c] flex items-center justify-center shadow-inner relative overflow-hidden">
+                        <div class="absolute inset-0 grain-overlay z-0"></div>
+                        <img src="9.png" alt="Leo Icon"
+                            class="z-10 w-full h-full object-cover rounded-xl drop-shadow-md">
+                    </div>
+                </div>
+                <!-- Card 10: Virgo -->
+                <div
+                    class="w-full p-3 sm:p-4 bg-[#fcfaf1] rounded-2xl flex flex-col items-center text-center shadow-xl hover:-translate-y-2 transition-transform duration-300 relative z-10">
+                    <h3 class="font-mystic text-xl sm:text-3xl md:text-4xl mt-2 sm:mt-3 mb-1 text-dark">Virgo</h3>
+                    <p
+                        class="font-sans text-[9px] sm:text-[11px] tracking-wide sm:tracking-widest text-gray-500 uppercase mb-3 sm:mb-5 font-semibold">
+                        Aug 23 - Sept 22</p>
+                    <a href="#cosmic-inquiry"
+                        class="learn-more-btn text-[10px] sm:text-xs font-sans tracking-wide sm:tracking-widest text-dark hover:text-accent transition-colors mb-3 sm:mb-5 uppercase font-medium">Learn
+                        More</a>
+                    <div
+                        class="w-full aspect-square rounded-xl bg-gradient-to-br from-[#8c7a6b] via-[#6e5d4e] to-[#54463a] flex items-center justify-center shadow-inner relative overflow-hidden">
+                        <div class="absolute inset-0 grain-overlay z-0"></div>
+                        <img src="10.png" alt="Virgo Icon"
+                            class="z-10 w-full h-full object-cover rounded-xl drop-shadow-md">
+                    </div>
+                </div>
+                <!-- Card 11: Scorpio -->
+                <div
+                    class="w-full p-3 sm:p-4 bg-[#fcfaf1] rounded-2xl flex flex-col items-center text-center shadow-xl hover:-translate-y-2 transition-transform duration-300 relative z-10">
+                    <h3 class="font-mystic text-xl sm:text-3xl md:text-4xl mt-2 sm:mt-3 mb-1 text-dark">Scorpio</h3>
+                    <p
+                        class="font-sans text-[9px] sm:text-[11px] tracking-wide sm:tracking-widest text-gray-500 uppercase mb-3 sm:mb-5 font-semibold">
+                        Oct 23 - Nov 21</p>
+                    <a href="#cosmic-inquiry"
+                        class="learn-more-btn text-[10px] sm:text-xs font-sans tracking-wide sm:tracking-widest text-dark hover:text-accent transition-colors mb-3 sm:mb-5 uppercase font-medium">Learn
+                        More</a>
+                    <div
+                        class="w-full aspect-square rounded-xl bg-gradient-to-br from-[#8a334b] via-[#662034] to-[#451221] flex items-center justify-center shadow-inner relative overflow-hidden">
+                        <div class="absolute inset-0 grain-overlay z-0"></div>
+                        <img src="11.png" alt="Scorpio Icon"
+                            class="z-10 w-full h-full object-cover rounded-xl drop-shadow-md">
+                    </div>
+                </div>
+                <!-- Card 12: Sagittarius -->
+                <div
+                    class="w-full p-3 sm:p-4 bg-[#fcfaf1] rounded-2xl flex flex-col items-center text-center shadow-xl hover:-translate-y-2 transition-transform duration-300 relative z-10">
+                    <h3 class="font-mystic text-xl sm:text-3xl md:text-4xl mt-2 sm:mt-3 mb-1 text-dark">Sagittarius</h3>
+                    <p
+                        class="font-sans text-[9px] sm:text-[11px] tracking-wide sm:tracking-widest text-gray-500 uppercase mb-3 sm:mb-5 font-semibold">
+                        Nov 22 - Dec 21</p>
+                    <a href="#cosmic-inquiry"
+                        class="learn-more-btn text-[10px] sm:text-xs font-sans tracking-wide sm:tracking-widest text-dark hover:text-accent transition-colors mb-3 sm:mb-5 uppercase font-medium">Learn
+                        More</a>
+                    <div
+                        class="w-full aspect-square rounded-xl bg-gradient-to-br from-[#9b5de5] via-[#7a3bc2] to-[#59229e] flex items-center justify-center shadow-inner relative overflow-hidden">
+                        <div class="absolute inset-0 grain-overlay z-0"></div>
+                        <img src="12.png" alt="Sagittarius Icon"
+                            class="z-10 w-full h-full object-cover rounded-xl drop-shadow-md">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Loader removal script -->
+    <script>
+        (function () {
+            var loader = document.getElementById('site-loader');
+            if (!loader) return;
+
+            function hideLoader() {
+                loader.style.opacity = '0';
+                loader.style.pointerEvents = 'none';
+                setTimeout(function () {
+                    loader.style.display = 'none';
+                }, 1000); // matches the duration-1000 transition
+            }
+
+            // Hide once the page has fully loaded...
+            window.addEventListener('load', hideLoader);
+
+            // ...but never wait more than 3s, in case a video fails to load/autoplay
+            setTimeout(hideLoader, 3000);
+        })();
+    </script>
+</body>
+
+</html>
